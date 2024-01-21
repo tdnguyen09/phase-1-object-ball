@@ -286,6 +286,28 @@ function playerWithLongestName(){
             longestName = player;
         }
     }
-    return `${longestName} is player with longest name`
+    return longestName
 }
 console.log(playerWithLongestName());
+let playerHasLongestName = playerWithLongestName();
+
+function doesLongNameStealATon(){
+    let mostStrealPlayer = "";
+    let steals = 0;
+    for (let player in gameObject().home.players){
+        if (gameObject().home.players[player].steals > steals){
+            mostStrealPlayer = player;
+        }
+    }
+    for (let player in gameObject().away.players){
+        if (gameObject().away.players[player].steals > steals){
+            mostStrealPlayer = player;
+        }
+    } 
+    if (playerHasLongestName === mostStrealPlayer){
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log (doesLongNameStealATon());
